@@ -1,0 +1,7 @@
+[isitup]
+BASE_URL=https://isitup.org/
+RESULT_FORMAT=json
+
+[slack]
+SLACK_BOT_TOKEN=
+BOT_ID=
