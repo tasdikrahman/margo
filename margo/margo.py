@@ -11,7 +11,8 @@ from slackclient import SlackClient
 import requests
 
 from utils import url_validator
-from constants import SLACK_TOKEN, BASE_URL, RESULT_FORMAT, BOT_ID, AT_BOT, READ_WEBSOCKET_DELAY
+from constants import (SLACK_TOKEN, BASE_URL, RESULT_FORMAT, BOT_ID,
+                       AT_BOT, READ_WEBSOCKET_DELAY)
 
 slack_client = SlackClient(SLACK_TOKEN)
 
@@ -20,7 +21,9 @@ def help():
     """Will show every possible interaction with the slack bot"""
     response = "You can ask me questions like\n"\
                "1) @isitupbot http://srmsearchengine.in/ \n"\
-               "*More commands coming through later on*"
+               "*More commands coming through later on* "\
+               "You can check the source code at \nhttps://github.com/prodicus/margo \n"\
+               "Happy hacking :smile:"
 
     slack_client.api_call("chat.postMessage", channel=channel,
                           text=response, as_user=True)

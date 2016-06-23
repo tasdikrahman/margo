@@ -11,6 +11,9 @@ An opiniated Slack bot written for [SRMSE's](http://srmsearchengine.in/) [slack 
 - [Installation](#installation)
     - [Clone it](#clone-it)
     - [Setting up the environment variables](#setting-up-the-environment-variables)
+- [Bot not responding](#bot-not-responding)
+- [Contributing](#contributing)
+    - [TODO](#todo)
 - [License](#license)
 
 ## What does it do
@@ -59,27 +62,22 @@ $ source margo/bin/activate     # Change default python to virtual one
 (margo)$ pip install -r requirements.txt
 ```
 
-### Setting up the environment variables
-
-**If you running it on your development machine**
-
-```sh
-$ cp settings.ini.example settings.ini
-```
-
-and add the required items to items
-
 **Deploying to Heroku**
 
-In heroku after creating your app, you have to set the environment variables for your bot.
+Go to the [Bot users page](https://api.slack.com/bot-users) and create a new bot to get the `SLACK_BOT_TOKEN`
 
 ```sh
+$ # create the heroku project
 $ heroku create {project-name}
 $ heroku config:set BASE_URL=https://isitup.org/
 $ heroku config:set RESULT_FORMAT=json
 $ heroku config:set SLACK_BOT_TOKEN=YOUR-SLACK-TOKEN
 $ heroku config:set BOT_ID=YOUR-BOT-ID
+$ # deploy it
+$ git push -u heroku master
 ```
+
+Check the logs for any errors by doing a `$ heroku logs -t`
 
 ### You need to get your Bot's ID too! How do you get it?
 
@@ -112,11 +110,33 @@ And then place put it inside the `settings.ini` or the heroku environment (whate
 
 ## Running it locally
 
+Setting up the environment variables
+
+```sh
+(margo)$ cp settings.ini.example settings.ini
 ```
-$ (margo)$ python margo/margo.py &
+
+and add the required values like `SLACK_BOT_TOKEN` and `BOT_ID`
+
+```sh
+(margo)$ make run
 ```
 
 Open you slack channel and start talking to your bot
+
+## Bot not responding
+
+So the thing with heroku and it's basic plan is that, the dyno sleeps after some inactivity. Visit [http://margo-slackbot.herokuapp.com/](http://margo-slackbot.herokuapp.com/) to wake up the bot!
+
+## Contributing
+
+[:arrow_up: Back to top](#index)
+
+Refer [CONTRIBUTING.rst](https://github.com/prodicus/margo/blob/master/CONTRIBUTING.rst) for details
+
+### TODO
+
+- [ ] Make `margo` query a website in intervals and notify when it goes down!
 
 ## License
 
