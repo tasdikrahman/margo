@@ -1,6 +1,5 @@
 # project specific files
 settings.ini
-print_bot_id.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

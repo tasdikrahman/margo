@@ -81,29 +81,10 @@ Check the logs for any errors by doing a `$ heroku logs -t`
 
 ### You need to get your Bot's ID too! How do you get it?
 
-```python
-#!/usr/bin/env python
+Run the script `print_bot_id.py` placed in inside the project directory scripts. Before running it, Change the the variable `BOT_NAME` to the bot name you chose for your case
 
-import configparser
-
-from slackclient import SlackClient
-
-BOT_NAME = 'isitupbot'
-
-config = configparser.ConfigParser()
-config.read('settings.ini')
-sc = SlackClient(config.get('slack', 'SLACK_BOT_TOKEN'))
-
-if __name__ == '__main__':
-    api_call = sc.api_call("users.list")
-    if api_call.get('ok'):
-        users = api_call.get('members')
-        for user in users:
-            if user.get('name') == BOT_NAME:
-                print('Bot id for ' + user['name'] + 'is : ' + user.get('id'))
-    else:
-        print('could not find a user named : ' + BOT_NAME)
-
+```sh
+$ python scripts/print_bot_id.py
 ```
 
 And then place put it inside the `settings.ini` or the heroku environment (whatever you chose)
