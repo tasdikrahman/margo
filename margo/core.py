@@ -9,14 +9,14 @@ import time
 
 from slackclient import SlackClient
 
-from utils import handle_command, parse_slack_output
-from constants import SLACK_TOKEN, READ_WEBSOCKET_DELAY
+from margo.utils import handle_command, parse_slack_output
+from margo.constants import SLACK_TOKEN, READ_WEBSOCKET_DELAY
 
 
 slack_client = SlackClient(SLACK_TOKEN)
 
 
-if __name__ == "__main__":
+def runner():
     if slack_client.rtm_connect():
         print("StarterBot connected and running!")
         while True:

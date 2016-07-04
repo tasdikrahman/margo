@@ -8,7 +8,13 @@ clean:
 	-find . -name '__pycache__' -delete
 
 run:
-	python margo/margo.py
+	python run.py start
+
+bot_id:
+	python run.py bot_id
+
+deps:
+	pip install -r requirements.txt
 
 deploy: clean
 	# deploys app to heroku as well pushes the latest commits to the github

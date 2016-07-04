@@ -7,9 +7,8 @@
 import os
 READ_WEBSOCKET_DELAY = 1  # 1 second delay between reading from firehose
 
-file_path = os.path.abspath(__file__)
-par_dir = file_path.split('margo/constants.py')[0]
-settings_file = os.path.join(par_dir, 'settings.ini')
+# specified in the parent folder
+settings_file = 'settings.ini'
 
 """check whether the file 'settings.ini' exists or not"""
 if os.path.isfile(settings_file):

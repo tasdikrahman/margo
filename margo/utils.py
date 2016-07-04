@@ -10,8 +10,8 @@ from urllib.parse import urlparse
 
 import requests
 
-from constants import BASE_URL, RESULT_FORMAT, AT_BOT
-from helpers import help, default_resp
+from margo.constants import BASE_URL, RESULT_FORMAT, AT_BOT
+from margo.helpers import help, default_resp
 
 # django url validation regex:
 # ref: http://stackoverflow.com/a/7160778/3834059

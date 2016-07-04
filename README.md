@@ -29,19 +29,28 @@ Margo will notify in realtime if the queried website is down or not. As it resid
 All the `TOKENS` have been kept inside a single `settings.ini.example` file.
 
 ```sh
+
+$ tree
 .
+├── assets
+│   └── demo.gif
+├── CONTRIBUTING.rst
 ├── LICENSE
+├── Makefile
 ├── margo
 │   ├── constants.py
+│   ├── core.py
+│   ├── helpers.py
 │   ├── __init__.py
-│   ├── margo.py
 │   └── utils.py
 ├── Procfile
 ├── README.md
 ├── requirements.txt
-├── runtime.txt
+├── run.py
+├── scripts
+│   ├── __init__.py
+│   └── print_bot_id.py
 └── settings.ini.example
-
 
 ```
 
@@ -59,7 +68,7 @@ $ virtualenv margo              # Create virtual environment
 $ source margo/bin/activate     # Change default python to virtual one
 (margo)$ git clone https://github.com/prodicus/margo.git
 (margo)$ cd margo
-(margo)$ pip install -r requirements.txt
+(margo)$ make deps
 ```
 
 **Deploying to Heroku**
@@ -81,10 +90,10 @@ Check the logs for any errors by doing a `$ heroku logs -t`
 
 ### You need to get your Bot's ID too! How do you get it?
 
-Run the script `print_bot_id.py` placed in inside the project directory scripts. Before running it, Change the the variable `BOT_NAME` to the bot name you chose for your case
+Run the script `print_bot_id.py` placed in inside the project directory `scripts`. Before running it, Change the the variable `BOT_NAME` to the bot name you chose for your case
 
 ```sh
-$ python scripts/print_bot_id.py
+$ make bot_id
 ```
 
 And then place put it inside the `settings.ini` or the heroku environment (whatever you chose)
